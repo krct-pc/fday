@@ -48,7 +48,7 @@
                     <h3 class="crew-name">Ms. Prashanthini T</h3>
                     <p class="crew-role"><strong>President</strong><br>English Club</p>
                 </div>
-                <div class="crew-member last-member">
+                <div class="crew-member">
                     <img src="assets/images/dp.jpg" alt="Crew Member 3" class="crew-dp">
                     <h3 class="crew-name">Mr. Rohit SK</h3>
                     <p class="crew-role"><strong>President</strong><br>Programming Club</p>
@@ -56,6 +56,23 @@
             </div>
 
             <style>
+            .event-header-content {
+                text-align: center;
+                padding: 2rem 0;
+            }
+
+            .event-title {
+                color: #fff;
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                color: rgba(255,255,255,0.9);
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+
             .crew-section-title {
                 text-align: center;
                 color: #fff;
@@ -101,24 +118,28 @@
             }
 
             @media (max-width: 768px) {
+                .event-title {
+                    font-size: 2.2rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1rem;
+                    padding: 0 1rem;
+                }
+
                 .crew-section-title {
                     font-size: 1.5rem;
                 }
 
                 .crew-members {
                     gap: 1.5rem;
-                    justify-content: space-around;
+                    justify-content: center;
                     margin: 2rem auto;
-                    max-width: 100%;
                 }
 
                 .crew-member {
                     flex: 0 1 140px;
-                    margin-bottom: 1rem;
-                }
-
-                .last-member {
-                    flex-basis: 100%;
+                    margin-bottom: 1.5rem;
                 }
 
                 .crew-dp {
@@ -136,6 +157,14 @@
             }
 
             @media (max-width: 480px) {
+                .event-title {
+                    font-size: 1.8rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 0.9rem;
+                }
+
                 .crew-members {
                     gap: 1rem;
                 }
