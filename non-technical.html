@@ -34,6 +34,7 @@
             <div class="event-header-content">
                 <h1 class="event-title">Non-Technical Events</h1>
                 <p class="hero-subtitle">Participate in fun and engaging activities that don't require technical expertise.</p>
+                <h2 class="crew-section-title">Event Coordinators</h2>
             </div>
 
             <div class="crew-members">
@@ -47,7 +48,7 @@
                     <h3 class="crew-name">Ms. Prashanthini T</h3>
                     <p class="crew-role"><strong>President</strong><br>English Club</p>
                 </div>
-                <div class="crew-member">
+                <div class="crew-member last-member">
                     <img src="assets/images/dp.jpg" alt="Crew Member 3" class="crew-dp">
                     <h3 class="crew-name">Mr. Rohit SK</h3>
                     <p class="crew-role"><strong>President</strong><br>Programming Club</p>
@@ -55,6 +56,13 @@
             </div>
 
             <style>
+            .crew-section-title {
+                text-align: center;
+                color: #fff;
+                margin: 2rem 0 1rem;
+                font-size: 1.8rem;
+            }
+
             .crew-members {
                 display: flex;
                 justify-content: center;
@@ -93,6 +101,10 @@
             }
 
             @media (max-width: 768px) {
+                .crew-section-title {
+                    font-size: 1.5rem;
+                }
+
                 .crew-members {
                     gap: 1.5rem;
                     justify-content: space-around;
@@ -103,6 +115,10 @@
                 .crew-member {
                     flex: 0 1 140px;
                     margin-bottom: 1rem;
+                }
+
+                .last-member {
+                    flex-basis: 100%;
                 }
 
                 .crew-dp {
@@ -202,6 +218,100 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            .events-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            .event-card {
+                background: #fff;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .event-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .event-card-img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .event-card-content {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .event-card-title {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+
+            .event-card-tagline {
+                color: #666;
+                margin-bottom: 1rem;
+            }
+
+            .btn-primary {
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                background: #007bff;
+                color: #fff;
+                border-radius: 25px;
+                text-decoration: none;
+                transition: background 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background: #0056b3;
+            }
+
+            @media (max-width: 992px) {
+                .events-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                    padding: 1.5rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .events-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                    padding: 1rem;
+                }
+
+                .event-card-img {
+                    height: 150px;
+                }
+
+                .event-card-content {
+                    padding: 1rem;
+                }
+
+                .event-card-title {
+                    font-size: 1.1rem;
+                }
+
+                .event-card-tagline {
+                    font-size: 0.9rem;
+                }
+
+                .btn-primary {
+                    padding: 0.5rem 1rem;
+                    font-size: 0.9rem;
+                }
+            }
+        </style>
     </section>
 
     <!-- Footer -->
