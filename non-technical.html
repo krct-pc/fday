@@ -29,7 +29,7 @@
     </header>
 
     <!-- Page Header -->
-    <section class="event-header" style="background-image: url('assets/images/event-banners/non-technical-header.jpg');">
+    <section class="event-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #1a1a1a;">
         <div class="container">
             <div class="event-header-content">
                 <h1 class="event-title">Non-Technical Events</h1>
@@ -39,19 +39,25 @@
 
             <div class="crew-members">
                 <div class="crew-member">
-                    <img src="assets/images/dp.jpg" alt="Crew Member 1" class="crew-dp">
-                    <h3 class="crew-name">Mr. Harish K</h3>
-                    <p class="crew-role"><strong>CEO</strong><br>Eventra</p>
+                    <div class="crew-dp-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="crew-name">Dr. Ramesh Kumar</h3>
+                    <p class="crew-role"><strong>Faculty Coordinator</strong><br>Non-Technical Events</p>
                 </div>
                 <div class="crew-member">
-                    <img src="assets/images/dp.jpg" alt="Crew Member 2" class="crew-dp">
-                    <h3 class="crew-name">Ms. Prashanthini T</h3>
-                    <p class="crew-role"><strong>President</strong><br>English Club</p>
+                    <div class="crew-dp-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="crew-name">Ms. Divya Sharma</h3>
+                    <p class="crew-role"><strong>Student Coordinator</strong><br>Cultural Club</p>
                 </div>
                 <div class="crew-member">
-                    <img src="assets/images/dp.jpg" alt="Crew Member 3" class="crew-dp">
-                    <h3 class="crew-name">Mr. Rohit SK</h3>
-                    <p class="crew-role"><strong>President</strong><br>Programming Club</p>
+                    <div class="crew-dp-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="crew-name">Mr. Arun Prakash</h3>
+                    <p class="crew-role"><strong>Student Coordinator</strong><br>Literary Club</p>
                 </div>
             </div>
 
@@ -95,14 +101,22 @@
                 margin-bottom: 1.5rem;
             }
 
-            .crew-dp {
+            .crew-dp-placeholder {
                 width: 120px;
                 height: 120px;
                 border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 1rem;
+                margin: 0 auto 1rem;
+                background: rgba(255,255,255,0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 border: 3px solid #fff;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .crew-dp-placeholder i {
+                font-size: 48px;
+                color: rgba(255,255,255,0.8);
             }
 
             .crew-name {
@@ -142,9 +156,13 @@
                     margin-bottom: 1.5rem;
                 }
 
-                .crew-dp {
+                .crew-dp-placeholder {
                     width: 90px;
                     height: 90px;
+                }
+
+                .crew-dp-placeholder i {
+                    font-size: 36px;
                 }
 
                 .crew-name {
@@ -173,9 +191,13 @@
                     flex: 0 1 120px;
                 }
 
-                .crew-dp {
+                .crew-dp-placeholder {
                     width: 80px;
                     height: 80px;
+                }
+
+                .crew-dp-placeholder i {
+                    font-size: 32px;
                 }
             }
             </style>
