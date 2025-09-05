@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Events - Drifton</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Drift<span>on</span></a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="technical.html" class="active">Technical Events</a></li>
+                    <li><a href="non-technical.html">Non-Technical Events</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="event-header" style="background-image: url('assets/images/event-banners/technical-header.jpg');">
+        <div class="container">
+            <div class="event-header-content">
+                <h1 class="event-title">Technical Events</h1>
+                
+                <p class="hero-subtitle">Showcase your technical skills and knowledge in coding, problem-solving, and innovation.</p>
+            </div>
+<div class="crew-members">
+    <div class="crew-member">
+        <img src="assets/images/crew/member1.jpg" alt="Crew Member 1" class="crew-dp">
+        <h3 class="crew-name">John Doe</h3>
+        <p class="crew-role">Techn ical Head</p>
+    </div>
+    <div class="crew-member">
+        <img src="assets/images/crew/member2.jpg" alt="Crew Member 2" class="crew-dp">
+        <h3 class="crew-name">Jane Smith</h3>
+        <p class="crew-role">Event Coordinator</p>
+    </div>
+    <div class="crew-member">
+        <img src="assets/images/crew/member3.jpg" alt="Crew Member 3" class="crew-dp">
+        <h3 class="crew-name">Mike Johnson</h3>
+        <p class="crew-role">Creative Director</p>
+    </div>
+</div>
+
+<style>
+.crew-members {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: nowrap;
+}
+
+.crew-member {
+    text-align: center;
+    flex: 0 1 200px;
+}
+
+.crew-dp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.crew-name {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #fff;
+}
+
+.crew-role {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .crew-members {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .crew-member {
+        flex: 0 0 auto;
+        width: 150px;
+    }
+
+    .crew-dp {
+        width: 100px;
+        height: 100px;
+    }
+}
+</style>
+        </div>
+    </section>
+
+    <!-- Events Grid Section -->
+    <section class="events section">
+        <div class="container">
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <div class="event-card" data-event-link="events/codeseek.html" data-animate>
+                    <img src="assets/images/event-banners/codeseek.jpg" alt="Code Seek" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Code Seek</h3>
+                        <p class="event-card-tagline">Hunt. Code. Conquer.</p>
+                        <a href="events/codeseek.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="event-card" data-event-link="events/hackathon.html" data-animate>
+                    <img src="assets/images/event-banners/hackathon.jpg" alt="Hackathon" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Hackathon</h3>
+                        <p class="event-card-tagline">48 hours of innovation</p>
+                        <a href="events/hackathon.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="event-card" data-event-link="events/quiz.html" data-animate>
+                    <img src="assets/images/event-banners/quiz.jpg" alt="Tech Quiz" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Tech Quiz</h3>
+                        <p class="event-card-tagline">Test your tech knowledge</p>
+                        <a href="events/quiz.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 4 -->
+                <div class="event-card" data-event-link="events/webdev.html" data-animate>
+                    <img src="assets/images/event-banners/webdev.jpg" alt="Web Development" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Web Development</h3>
+                        <p class="event-card-tagline">Create stunning websites</p>
+                        <a href="events/webdev.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 5 -->
+                <div class="event-card" data-event-link="events/datascience.html" data-animate>
+                    <img src="assets/images/event-banners/datascience.jpg" alt="Data Science Challenge" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Data Science Challenge</h3>
+                        <p class="event-card-tagline">Analyze. Predict. Win.</p>
+                        <a href="events/datascience.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 6 -->
+                <div class="event-card" data-event-link="events/cybersecurity.html" data-animate>
+                    <img src="assets/images/event-banners/cybersecurity.jpg" alt="Cyber Security CTF" class="event-card-img">
+                    <div class="event-card-content">
+                        <h3 class="event-card-title">Cyber Security CTF</h3>
+                        <p class="event-card-tagline">Capture the flag</p>
+                        <a href="events/cybersecurity.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Drift<span>on</span></a>
+                    <p class="footer-desc">Creating innovative and engaging events for tech enthusiasts and creative minds.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="technical.html">Technical Events</a></li>
+                        <li><a href="non-technical.html">Non-Technical Events</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Events</h3>
+                    <ul class="footer-links">
+                        <li><a href="events/codeseek.html">Code Seek</a></li>
+                        <li><a href="events/hackathon.html">Hackathon</a></li>
+                        <li><a href="events/quiz.html">Tech Quiz</a></li>
+                        <li><a href="events/gaming.html">Gaming Tournament</a></li>
+                        <li><a href="events/talent.html">Talent Show</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Synerix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize the events grid for technical events
+        document.addEventListener('DOMContentLoaded', function() {
+            // If you want to load events dynamically, uncomment the line below
+            // populateEventsGrid('technical');
+        });
+    </script>
+</body>
+</html>
