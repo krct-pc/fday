@@ -38,26 +38,30 @@
             </div>
 
             <div class="crew-members">
-                <div class="crew-member">
-                    <div class="crew-dp-placeholder">
-                        <i class="fas fa-user"></i>
+                <div class="crew-row-top">
+                    <div class="crew-member">
+                        <div class="crew-dp-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="crew-name">Dr. Ramesh Kumar</h3>
+                        <p class="crew-role"><strong>Faculty Coordinator</strong><br>Non-Technical Events</p>
                     </div>
-                    <h3 class="crew-name">Dr. Ramesh Kumar</h3>
-                    <p class="crew-role"><strong>Faculty Coordinator</strong><br>Non-Technical Events</p>
+                    <div class="crew-member">
+                        <div class="crew-dp-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="crew-name">Ms. Divya Sharma</h3>
+                        <p class="crew-role"><strong>Student Coordinator</strong><br>Cultural Club</p>
+                    </div>
                 </div>
-                <div class="crew-member">
-                    <div class="crew-dp-placeholder">
-                        <i class="fas fa-user"></i>
+                <div class="crew-row-bottom">
+                    <div class="crew-member">
+                        <div class="crew-dp-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="crew-name">Mr. Arun Prakash</h3>
+                        <p class="crew-role"><strong>Student Coordinator</strong><br>Literary Club</p>
                     </div>
-                    <h3 class="crew-name">Ms. Divya Sharma</h3>
-                    <p class="crew-role"><strong>Student Coordinator</strong><br>Cultural Club</p>
-                </div>
-                <div class="crew-member">
-                    <div class="crew-dp-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="crew-name">Mr. Arun Prakash</h3>
-                    <p class="crew-role"><strong>Student Coordinator</strong><br>Literary Club</p>
                 </div>
             </div>
 
@@ -88,11 +92,22 @@
 
             .crew-members {
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
                 gap: 2rem;
                 margin-top: 2rem;
-                flex-wrap: wrap;
                 padding: 0 1rem;
+            }
+
+            .crew-row-top {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            .crew-row-bottom {
+                display: flex;
+                justify-content: center;
             }
 
             .crew-member {
@@ -145,15 +160,12 @@
                     font-size: 1.5rem;
                 }
 
-                .crew-members {
+                .crew-row-top {
                     gap: 1.5rem;
-                    justify-content: center;
-                    margin: 2rem auto;
                 }
 
                 .crew-member {
                     flex: 0 1 140px;
-                    margin-bottom: 1.5rem;
                 }
 
                 .crew-dp-placeholder {
@@ -183,7 +195,7 @@
                     font-size: 0.9rem;
                 }
 
-                .crew-members {
+                .crew-row-top {
                     gap: 1rem;
                 }
 
