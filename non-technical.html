@@ -31,150 +31,159 @@
 <!-- Crew Members Triangle Layout -->
 
         <!-- Triangle Crew Layout -->
-        <div class="crew-members">
-            <div class="crew-row">
-                <div class="crew-member">
-                    <div class="member-glow"></div>
-                    <img src="assets/images/harish.jpg" alt="Mr. Harish K" class="crew-dp">
-                    <h3 class="crew-name">Mr. Harish K</h3>
-                    <p class="crew-role"><strong>CEO</strong><br>Eventra</p>
-                </div>
-                <div class="crew-member">
-                    <div class="member-glow"></div>
-                    <img src="assets/images/dp.jpg" alt="Ms. Prashanthini T" class="crew-dp">
-                    <h3 class="crew-name">Ms. Prashanthini T</h3>
-                    <p class="crew-role"><strong>President</strong><br>English Club</p>
-                </div>
-                <div class="crew-member">
-                    <div class="member-glow"></div>
-                    <img src="assets/images/4.jpg" alt="Mr. Rohit SK" class="crew-dp">
-                    <h3 class="crew-name">Mr. Rohit SK</h3>
-                    <p class="crew-role"><strong>President</strong><br>Programming Club</p>
-                </div>
-            </div>
-        </div>
+<div class="crew-members-slideshow">
+    <div class="crew-member fade">
+        <div class="member-glow"></div>
+        <img src="assets/images/harish.jpg" alt="Mr. Harish K" class="crew-dp">
+        <h3 class="crew-name">Mr. Harish K</h3>
+        <p class="crew-role"><strong>CEO</strong><br>Eventra</p>
+    </div>
 
-        <style>
-            .crew-members {
-                display: flex;
-                justify-content: center;
-                margin-top: 5rem;
-                position: relative;
+    <div class="crew-member fade">
+        <div class="member-glow"></div>
+        <img src="assets/images/prash.jpg"Ms. Prashanthini T" class="crew-dp">
+        <h3 class="crew-name">Ms. Prashanthini T</h3>
+        <p class="crew-role"><strong>President</strong><br>English Club</p>
+    </div>
+
+    <div class="crew-member fade">
+        <div class="member-glow"></div>
+        <img src="assets/images/4.jpg" alt="Mr. Rohit SK" class="crew-dp">
+        <h3 class="crew-name">Mr. Rohit SK</h3>
+        <p class="crew-role"><strong>President</strong><br>Programming Club</p>
+    </div>
+</div>
+
+<style>
+    .crew-members-slideshow {
+        width: 100%;
+        max-width: 300px;
+        margin: 5rem auto;
+        position: relative;
+        height: 300px;
+    }
+
+    .crew-member {
+        text-align: center;
+        padding: 1.5rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .crew-member.active {
+        opacity: 1;
+    }
+
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {opacity: 0.4}
+        to {opacity: 1}
+    }
+
+    .member-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, 
+            rgba(147, 51, 234, 0.3),
+            rgba(79, 70, 229, 0.3),
+            rgba(168, 85, 247, 0.3));
+        border-radius: 50%;
+        filter: blur(50px);
+        z-index: -1;
+        animation: glowPulse 3s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+        0% {
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        100% {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+    .crew-dp {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid rgba(147, 51, 234, 0.5);
+        filter: drop-shadow(0 8px 16px rgba(147, 51, 234, 0.4));
+    }
+
+    .crew-name {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+        background: linear-gradient(90deg, #9333ea, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .crew-role {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        text-shadow: 0 0 8px rgba(147, 51, 234, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .crew-dp {
+            width: 100px;
+            height: 100px;
+        }
+
+        .crew-name {
+            font-size: 1rem;
+        }
+
+        .crew-members-slideshow {
+            margin-top: 3rem;
+            height: 250px;
+        }
+
+        .member-glow {
+            width: 150%;
+            height: 150%;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("crew-member");
+        
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.opacity = "0";
             }
-
-            .crew-row {
-                display: flex;
-                justify-content: center;
-                gap: 3rem;
-                position: relative;
-                z-index: 1;
-            }
-
-            .crew-member {
-                text-align: center;
-                max-width: 180px;
-                padding: 1rem;
-                transition: transform 0.3s ease;
-                position: relative;
-            }
-
-            .member-glow {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 180%;
-                height: 180%;
-                background: linear-gradient(45deg, 
-                    rgba(147, 51, 234, 0.3),
-                    rgba(79, 70, 229, 0.3),
-                    rgba(168, 85, 247, 0.3));
-                border-radius: 50%;
-                filter: blur(50px);
-                z-index: -1;
-                animation: glowPulse 3s infinite alternate;
-            }
-
-            @keyframes glowPulse {
-                0% {
-                    opacity: 0.5;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-                100% {
-                    opacity: 0.8;
-                    transform: translate(-50%, -50%) scale(1.2);
-                }
-            }
-
-            .crew-member:hover {
-                transform: translateY(-5px);
-            }
-
-            .crew-member:hover .member-glow {
-                animation: glowPulse 1.5s infinite alternate;
-            }
-
-            .crew-dp {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 0.8rem;
-                border: 3px solid rgba(147, 51, 234, 0.5);
-                filter: drop-shadow(0 8px 16px rgba(147, 51, 234, 0.4));
-            }
-
-            .crew-name {
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-                color: #fff;
-                text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
-                background: linear-gradient(90deg, #9333ea, #a855f7);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-            .crew-role {
-                font-size: 0.85rem;
-                color: rgba(255, 255, 255, 0.9);
-                margin: 0;
-                text-shadow: 0 0 8px rgba(147, 51, 234, 0.3);
-            }
-
-            @media (max-width: 768px) {
-                .crew-row {
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    overflow-x: auto;
-                    gap: 1.5rem;
-                    padding: 0 1rem;
-                }
-
-                .crew-member {
-                    flex: 0 0 auto;
-                    max-width: 140px;
-                    padding: 0.8rem;
-                }
-
-                .crew-dp {
-                    width: 80px;
-                    height: 80px;
-                }
-
-                .crew-name {
-                    font-size: 0.9rem;
-                }
-
-                .crew-role {
-                    font-size: 0.8rem;
-                }
-
-                .member-glow {
-                    width: 140%;
-                    height: 140%;
-                }
-            }
-        </style>
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.opacity = "1";
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds
+        }
+        
+        showSlides();
+    });
+</script>
 
 
 
