@@ -36,79 +36,104 @@
                 <p class="hero-subtitle">Participate in fun and engaging activities that don't require technical expertise.</p>
             </div>
 
- <div class="crew-members">
-    <div class="crew-member">
-        <img src="assets/images/dp.jpg" alt="Crew Member 1" class="crew-dp">
-        <h3 class="crew-name">Mr. Harish K</h3>
-        <p class="crew-role"><strong>CEO</strong><br>Eventra</p>
-    </div>
-    <div class="crew-member">
-        <img src="assets/images/dp.jpg" alt="Crew Member 2" class="crew-dp">
-        <h3 class="crew-name">Ms. Prashanthini T</h3>
-        <p class="crew-role"><strong>President</strong><br>English Club</p>
-    </div>
-    <div class="crew-member">
-        <img src="assets/images/dp.jpg" alt="Crew Member 3" class="crew-dp">
-        <h3 class="crew-name">Mr. Rohit SK</h3>
-        <p class="crew-role"><strong>President</strong><br>Programming Club</p>
-    </div>
-</div>
+            <div class="crew-members">
+                <div class="crew-member">
+                    <img src="assets/images/dp.jpg" alt="Crew Member 1" class="crew-dp">
+                    <h3 class="crew-name">Mr. Harish K</h3>
+                    <p class="crew-role"><strong>CEO</strong><br>Eventra</p>
+                </div>
+                <div class="crew-member">
+                    <img src="assets/images/dp.jpg" alt="Crew Member 2" class="crew-dp">
+                    <h3 class="crew-name">Ms. Prashanthini T</h3>
+                    <p class="crew-role"><strong>President</strong><br>English Club</p>
+                </div>
+                <div class="crew-member">
+                    <img src="assets/images/dp.jpg" alt="Crew Member 3" class="crew-dp">
+                    <h3 class="crew-name">Mr. Rohit SK</h3>
+                    <p class="crew-role"><strong>President</strong><br>Programming Club</p>
+                </div>
+            </div>
 
-<style>
-.crew-members {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    flex-wrap: nowrap;
-}
+            <style>
+            .crew-members {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+                padding: 0 1rem;
+            }
 
-.crew-member {
-    text-align: center;
-    flex: 0 1 200px;
-}
+            .crew-member {
+                text-align: center;
+                flex: 0 1 200px;
+                margin-bottom: 1.5rem;
+            }
 
-.crew-dp {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+            .crew-dp {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                border: 3px solid #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
 
-.crew-name {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    color: #fff;
-}
+            .crew-name {
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+                color: #fff;
+            }
 
-.crew-role {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
-    margin: 0;
-}
+            .crew-role {
+                font-size: 0.9rem;
+                color: rgba(255,255,255,0.8);
+                margin: 0;
+            }
 
-@media (max-width: 768px) {
-    .crew-members {
-        flex-direction: row;
-        overflow-x: auto;
-        padding: 1rem 0;
-        -webkit-overflow-scrolling: touch;
-    }
+            @media (max-width: 768px) {
+                .crew-members {
+                    gap: 1.5rem;
+                    justify-content: space-around;
+                    margin: 2rem auto;
+                    max-width: 100%;
+                }
 
-    .crew-member {
-        flex: 0 0 auto;
-        width: 150px;
-    }
+                .crew-member {
+                    flex: 0 1 140px;
+                    margin-bottom: 1rem;
+                }
 
-    .crew-dp {
-        width: 100px;
-        height: 100px;
-    }
-}
-</style>
+                .crew-dp {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                .crew-name {
+                    font-size: 1rem;
+                }
+
+                .crew-role {
+                    font-size: 0.8rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .crew-members {
+                    gap: 1rem;
+                }
+
+                .crew-member {
+                    flex: 0 1 120px;
+                }
+
+                .crew-dp {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+            </style>
         </div>
     </section>
 
