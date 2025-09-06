@@ -32,14 +32,156 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content" data-animate>
-                <h1 class="hero-title">Welcome to <span>Eventra</span></h1>
-                <p class="hero-subtitle">Join us for an exciting lineup of technical and non-technical events. Showcase your skills, learn something new, and win amazing prizes!</p>
-                <div class="hero-buttons">
-                    <a href="technical.html" class="btn btn-primary">Technical Events</a>
-                    <a href="non-technical.html" class="btn btn-secondary">Non-Technical Events</a>
+                <h1 class="hero-title">Welcome <span class="highlight-pulse">Freshers 2025!</span></h1>
+                <p class="hero-subtitle">
+                    <span class="text-glow">Join us for an unforgettable Freshers Day celebration!</span>
+                    <br>
+                    <span class="text-fade-in">Experience a day filled with fun activities, amazing performances, and create lasting memories with your new college family.</span>
+                </p>
+                <div class="hero-buttons animate-bounce">
+                    <a href="technical.html" class="btn btn-tech shine-effect">Non-Technical Events</a>
+<a href="non-technical.html" class="btn btn-fun shine-effect">Technical Events</a>
+                    <a href="onstage.html" class="btn btn-stage shine-effect">On Stage Events</a>
+                </div>
+                <div class="floating-elements">
+                    <span class="confetti">🎉</span>
+                    <span class="confetti">🎊</span>
+                    <span class="confetti">✨</span>
+                    <span class="confetti">🎈</span>
                 </div>
             </div>
         </div>
+        <style>
+
+
+            .highlight-pulse {
+                animation: pulse 2s infinite;
+                color: #ff4d4d;
+                text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+            }
+            
+            .text-glow {
+                color: #ff6b6b;
+                text-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+            }
+            
+            .text-fade-in {
+                animation: fadeIn 2s ease-in;
+            }
+            
+            .animate-bounce {
+                animation: bounce 1s infinite;
+            }
+            
+            .shine-effect {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .shine-effect::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+                transform: rotate(45deg);
+                animation: shine 3s infinite;
+            }
+
+            .btn-fun {
+                background: linear-gradient(45deg, #FF69B4, #FFD700);
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+            }
+
+            .btn-fun:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            }
+            .btn-tech {
+                background: linear-gradient(45deg, #41a137, #3927c0);
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+            }
+
+            .btn-tech:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            }
+
+
+            .btn-stage {
+                background: linear-gradient(45deg, #9932CC, #4B0082);
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+            }
+
+            .btn-stage:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(153, 50, 204, 0.5);
+            }
+            
+            .floating-elements {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+            
+            .confetti {
+                position: absolute;
+                animation: float 6s infinite;
+                font-size: 2rem;
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            
+            @keyframes shine {
+                0% { transform: translateX(-100%) rotate(45deg); }
+                100% { transform: translateX(100%) rotate(45deg); }
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(180deg); }
+            }
+        </style>
     </section>
 
     <!-- Event Categories Section -->
@@ -106,13 +248,13 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text" data-animate>
-                    <h2 class="about-title">About Drifton</h2>
-                    <p class="about-desc">Drifton is a dynamic startup under the parent organization Synerix, dedicated to creating engaging and innovative events for tech enthusiasts and creative minds alike. Our mission is to provide a platform for individuals to showcase their talents, learn new skills, and connect with like-minded people.</p>
-                    <p class="about-desc">Whether you're a coding expert, a gaming enthusiast, or someone looking to explore new interests, Drifton has something exciting for everyone. Join us in our journey of exploration, innovation, and fun!</p>
+                    <h2 class="about-title">About Eventra</h2>
+                    <p class="about-desc">Eventra is a dynamic startup under the parent organization Programming Club 24, dedicated to creating engaging and innovative events for tech enthusiasts and creative minds alike. Our mission is to provide a platform for individuals to showcase their talents, learn new skills, and connect with like-minded people.</p>
+                    <p class="about-desc">Whether you're a coding expert, a gaming enthusiast, or someone looking to explore new interests, Eventra has something exciting for everyone. Join us in our journey of exploration, innovation, and fun!</p>
                     <a href="#contact" class="btn btn-primary">Contact Us</a>
                 </div>
                 <div class="about-image" data-animate>
-                    <img src="assets/images/about.jpg" alt="About Drifton">
+                    <img src="assets/images/about.jpg" alt="About Eventra">
                 </div>
             </div>
         </div>
@@ -135,7 +277,7 @@
                         <i class="fas fa-phone"></i>
                         <div class="contact-info-text">
                             <h4>Phone</h4>
-                            <p>+91 4444444444</p>
+                            <p>+91 8248604505</p>
                         </div>
                     </div>
                     <div class="contact-info-item">

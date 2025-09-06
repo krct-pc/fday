@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Stage Events - Eventra</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Event<span>ra</span></a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="technical.html">Technical Events</a></li>
+                    <li><a href="non-technical.html" class="active">Non-Technical Events</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!-- Centered Floating Scroll Down Button -->
+<div class="scroll-down-container">
+    <a href="#events" class="scroll-down-btn">
+        <div class="scroll-down-text">Scroll Down</div>
+        <div class="scroll-down-arrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </a>
+</div>
+
+<style>
+.scroll-down-container {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto;
+    text-align: center;
+}
+
+.scroll-down-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(147, 51, 234, 0.2);
+    padding: 15px 25px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+.scroll-down-text {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #9333ea, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+.scroll-down-arrow {
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+    color: #9333ea;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+.scroll-down-btn:hover {
+    background: rgba(147, 51, 234, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+    .scroll-down-container {
+        bottom: 20px;
+    }
+    
+    .scroll-down-btn {
+        padding: 10px 20px;
+    }
+    
+    .scroll-down-text {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollBtn = document.querySelector('.scroll-down-btn');
+    
+    scrollBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const eventsSection = document.querySelector('.events');
+        eventsSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Hide button when near bottom of page
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+        
+        if (scrollPosition > pageHeight - 300) {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.pointerEvents = 'none';
+        } else {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.pointerEvents = 'auto';
+        }
+    });
+});
+</script>
+<!-- Page Header -->
+<!-- Crew Members Triangle Layout -->
+<!-- Triangle Crew Layout -->
+<div style="margin-top: 150px;"></div>
+<div class="crew-members-slideshow">
+    <div class="crew-member">
+        <div class="member-glow"></div>
+        <img src="assets/images/people/keshika.jpg" alt="Mr. Harish K" class="crew-dp">
+        <h3 class="crew-name">Keshika A</h3>
+        <p class="crew-role"><strong>On Stage/ II CSE B</strong><br>Student Event Coordinator</p>
+    </div>
+    <div class="crew-member">
+        <div class="member-glow"></div>
+        <img src="assets/images/people/unknown.jpg" alt="Ms. Prashanthini T" class="crew-dp">
+        <h3 class="crew-name">BOY</h3>
+        <p class="crew-role"><strong>On Stage</strong><br>Student Event Coordinator</p>
+    </div>
+
+    <div class="crew-member">
+        <div class="member-glow"></div>
+        <img src="assets/images/people/unknown.jpg" alt="Mr. Rohit SK" class="crew-dp">
+        <h3 class="crew-name">Staff</h3>
+        <p class="crew-role"><strong>Staff</strong><br>Staff Event Coordinator</p>
+    </div>
+</div>
+
+<style>
+    .crew-members-slideshow {
+        width: 100%;
+        max-width: 800px;
+        margin: 6rem auto 5rem;
+        position: relative;
+        height: 350px;
+        perspective: 800px;
+    }
+
+    .crew-member {
+        text-align: center;
+        padding: 2rem;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        width: 340px;
+        transform-style: preserve-3d;
+        transform: translateX(-50%) translateZ(0px) rotateY(0deg);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .crew-member.active {
+        opacity: 1;
+        transform: translateX(-50%) translateZ(200px) rotateY(0deg);
+    }
+
+    .crew-member.prev {
+        opacity: 0.7;
+        transform: translateX(-120%) translateZ(100px) rotateY(30deg);
+    }
+
+    .crew-member.next {
+        opacity: 0.7;
+        transform: translateX(20%) translateZ(100px) rotateY(-30deg);
+    }
+
+    .member-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, 
+            rgba(147, 51, 234, 0.3),
+            rgba(79, 70, 229, 0.3),
+            rgba(168, 85, 247, 0.3));
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: -1;
+        animation: glowPulse 3s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+        0% {
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        100% {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+    .crew-dp {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1.5rem;
+        border: 5px solid rgba(147, 51, 234, 0.5);
+        filter: drop-shadow(0 8px 16px rgba(147, 51, 234, 0.4));
+        transition: transform 0.3s ease;
+    }
+
+    .crew-member.active .crew-dp:hover {
+        transform: scale(1.1);
+    }
+
+    .crew-name {
+        font-size: 1.3rem;
+        margin: 0.6rem 0;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+        background: linear-gradient(90deg, #9333ea, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .crew-role {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        text-shadow: 0 0 8px rgba(147, 51, 234, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .crew-members-slideshow {
+            margin-top: 10rem;
+            margin-bottom: 2rem;
+            height: 300px;
+        }
+
+        .crew-member {
+            width: 500px;
+            padding: 1.5rem;
+        }
+
+        .crew-dp {
+            width: 120px;
+            height: 120px;
+        }
+
+        .crew-name {
+            font-size: 1.1rem;
+        }
+
+        .crew-role {
+            font-size: 0.9rem;
+        }
+
+        .crew-member.prev {
+            transform: translateX(-100%) translateZ(50px) rotateY(30deg);
+        }
+
+        .crew-member.next {
+            transform: translateX(0%) translateZ(50px) rotateY(-30deg);
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.getElementsByClassName("crew-member");
+        let currentSlide = 0;
+        
+        function updateSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].className = "crew-member";
+                
+                if (i === currentSlide) {
+                    slides[i].classList.add("active");
+                } else if (i === (currentSlide - 1 + slides.length) % slides.length) {
+                    slides[i].classList.add("prev");
+                } else if (i === (currentSlide + 1) % slides.length) {
+                    slides[i].classList.add("next");
+                }
+            }
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }
+        
+        updateSlides();
+        setInterval(nextSlide, 1500);
+        slides[0].parentElement.addEventListener('click', nextSlide);
+    });
+</script>
+
+    <!-- Events Grid Section -->
+<section class="events section">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title animated-title">On Stage Events</h2>
+        <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card animate-pop">
+                <a href="events/gaming.html">
+                    <div class="event-image-container">
+                        <img src="assets/images/event-banners/solod.jpeg" alt="Gaming Tournament" class="event-card-img">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="event-card-title"></h3>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Event Card 2 -->
+            <div class="event-card animate-pop">
+                <a href="events/talent.html">
+                    <div class="event-image-container">
+                        <img src="assets/images/event-banners/groupd.jpeg" alt=Talent Show" class="event-card-img">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="event-card-title"></h3>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Event Card 3 -->
+            <div class="event-card animate-pop">
+                <a href="events/photography.html">
+                    <div class="event-image-container">
+                        <img src="assets/images/event-banners/solos.jpeg" alt="Photography Contest" class="event-card-img">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="event-card-title"></h3>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Event Card 4 -->
+            <div class="event-card animate-pop">
+                <a href="events/debate.html">
+                    <div class="event-image-container">
+                        <img src="assets/images/event-banners/groups.jpeg" alt="Debate Competition" class="event-card-img">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="event-card-title"></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 1.5rem 0;
+            top: -70px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5rem;
+            padding: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            top: 50px;
+            animation: jumpLoop 1.2s infinite;
+        }
+
+        .animate-pop {
+            animation: popIn 0.3s ease-out forwards, jumpLoop 1.7s infinite 0.3s;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            80% {
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .event-card:nth-child(1) { animation-delay: 0.05s; }
+        .event-card:nth-child(2) { animation-delay: 0.1s; }
+        .event-card:nth-child(3) { animation-delay: 0.15s; }
+        .event-card:nth-child(4) { animation-delay: 0.2s; }
+
+        .event-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .event-image-container {
+            width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .event-card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+        }
+
+        .event-card:hover .event-card-img {
+            transform: scale(1.1);
+        }
+
+        .event-card-content {
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .event-card-title {
+            font-size: 0.9rem;
+            color: #fff;
+            margin: 0.3rem 0;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                padding: 1rem;
+                max-width: 600px;
+            }
+
+            .event-card {
+                max-width: 220px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .event-card-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0.8rem;
+                max-width: 400px;
+            }
+
+            .event-card {
+                max-width: 160px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .event-card-content {
+                padding: 0.4rem;
+            }
+        }
+    </style>
+</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Event<span>ra</span></a>
+                    <p class="footer-desc">Creating innovative and engaging events for tech enthusiasts and creative minds.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="technical.html">Technical Events</a></li>
+                        <li><a href="non-technical.html">Non-Technical Events</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Events</h3>
+                    <ul class="footer-links">
+                        <li><a href="events/codeseek.html">Code Seek</a></li>
+                        <li><a href="events/hackathon.html">Hackathon</a></li>
+                        <li><a href="events/quiz.html">Tech Quiz</a></li>
+                        <li><a href="events/gaming.html">Gaming Tournament</a></li>
+                        <li><a href="events/talent.html">Talent Show</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PROGRAMMING CLUB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize the events grid for non-technical events
+        document.addEventListener('DOMContentLoaded', function() {
+            // If you want to load events dynamically, uncomment the line below
+            // populateEventsGrid('non-technical');
+        });
+    </script>
+</body>
+</html>
