@@ -48,18 +48,14 @@ html, body {
     }
 }
 </style>
-
 <!-- Preloader -->
 <div id="preloader">
     <div class="loader-content">
         <img src="assets/images/logo-trans.png" alt="Eventra Logo" class="preloader-logo">
         <div class="loader-text">Event<span>ra</span></div>
         <div class="loading-line"></div>
-        <button id="launchBtn" class="launch-btn">Fire UP</button>
     </div>
 </div>
-
-<div id="fireworksContainer"></div>
 
 <style>
 #preloader {
@@ -168,212 +164,21 @@ html, body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
-.launch-btn {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.8);
-    border-radius: 30px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
-
-.launch-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg,
-        #ff4d4d, #ff9933, #ffcc00,
-        #ff4d4d);
-    background-size: 300% 100%;
-    z-index: -1;
-    animation: gradient-flow 8s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.launch-btn.burning {
-    animation: burn 2s ease-in-out;
-    border-color: transparent;
-}
-
-.launch-btn.burning::before {
-    opacity: 1;
-}
-
-.launch-btn.burning::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background: 
-        repeating-linear-gradient(
-            45deg,
-            rgba(255, 77, 77, 0.8) 0%,
-            rgba(255, 153, 51, 0.8) 10%,
-            rgba(255, 204, 0, 0.8) 20%,
-            transparent 30%
-        );
-    filter: blur(4px);
-    animation: flames 1s ease-out infinite;
-    transform-origin: center bottom;
-}
-
-@keyframes burn {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 30px rgba(255, 77, 77, 0.8);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes flames {
-    0% {
-        transform: scaleY(1) translateY(0);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scaleY(1.2) translateY(-20%);
-        opacity: 0.9;
-    }
-    100% {
-        transform: scaleY(1) translateY(-40%);
-        opacity: 0.3;
-    }
-}
-
-@keyframes gradient-flow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 800% 50%; }
-}
-
-.launch-btn:hover::before {
-    opacity: 1;
-}
-
-.launch-btn:hover {
-    transform: scale(1.1);
-    border-color: transparent;
-    box-shadow: 0 0 30px rgba(147,51,234,0.6);
-}
-
-#fireworksContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10000;
-}
-
-.particle {
-    position: absolute;
-    background: radial-gradient(circle, var(--color1) 0%, var(--color2) 100%);
-    border-radius: 50%;
-    filter: blur(3px);
-    animation: grand-explode var(--duration) cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
-
-@keyframes grand-explode {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--tx), var(--ty)) scale(0);
-        opacity: 0;
-    }
-}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
-    const launchBtn = document.getElementById('launchBtn');
-    const fireworksContainer = document.getElementById('fireworksContainer');
-
-    function createGrandFirework(x, y) {
-        const colors = [
-            ['#ffd700', '#ff4500'], // Gold to Red-Orange
-            ['#ff1493', '#4169e1'], // Deep Pink to Royal Blue
-            ['#00ff00', '#ff00ff'], // Lime to Magenta
-            ['#ff4500', '#00ffff'], // Red-Orange to Cyan
-            ['#9400d3', '#00ff00']  // Purple to Lime
-        ];
-
-        for (let i = 0; i < 200; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            const angle = (Math.PI * 2 * i) / 200;
-            const velocity = 1 + Math.random() * 3;
-            const size = 4 + Math.random() * 6;
-            const spread = 300;
-            const tx = Math.cos(angle) * spread * velocity;
-            const ty = Math.sin(angle) * spread * velocity;
-            const duration = 3 + Math.random() * 2;
-            const colorPair = colors[Math.floor(Math.random() * colors.length)];
-            
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${x}px`;
-            particle.style.top = `${y}px`;
-            particle.style.setProperty('--tx', `${tx}px`);
-            particle.style.setProperty('--ty', `${ty}px`);
-            particle.style.setProperty('--duration', `${duration}s`);
-            particle.style.setProperty('--color1', colorPair[0]);
-            particle.style.setProperty('--color2', colorPair[1]);
-            
-            fireworksContainer.appendChild(particle);
-            
-            setTimeout(() => particle.remove(), duration * 1000);
-        }
-    }
-
-    launchBtn.addEventListener('click', () => {
-        for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-                const x = Math.random() * window.innerWidth;
-                const y = window.innerHeight * 0.3 + Math.random() * (window.innerHeight * 0.3);
-                createGrandFirework(x, y);
-            }, i * 800); // Slower launch sequence
-        }
-    });
 
     setTimeout(() => {
         preloader.style.opacity = '0';
         preloader.style.transition = 'opacity 1s ease';
         setTimeout(() => {
             preloader.remove();
-            fireworksContainer.remove();
         }, 1000);
-    }, 7000);
+    }, 3000); // Changed to 3 seconds
 });
 </script>
-
-
-
 
 
 

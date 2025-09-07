@@ -26,6 +26,141 @@
         </div>
     </header>
 
+    <!-- Preloader -->
+<div id="preloader">
+    <div class="loader-content">
+        <img src="assets/images/logo-trans.png" alt="Eventra Logo" class="preloader-logo">
+        <div class="loader-text">Event<span>ra</span></div>
+        <div class="loading-line"></div>
+    </div>
+</div>
+
+<style>
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-content {
+    text-align: center;
+    position: relative;
+}
+
+.preloader-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 30px;
+    animation: float-glow 4s ease-in-out infinite;
+}
+
+.loading-line {
+    width: 200px;
+    height: 3px;
+    background: rgba(147, 51, 234, 0.2);
+    margin: 20px auto 30px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-line::after {
+    content: '';
+    position: absolute;
+    left: -50%;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(147, 51, 234, 0.8),
+        rgba(168, 85, 247, 0.8),
+        rgba(147, 51, 234, 0.8),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes float-glow {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));
+    }
+    50% {
+        transform: translateY(-20px);
+        filter: drop-shadow(0 0 30px rgba(147,51,234,0.8));
+    }
+}
+
+.loader-text {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    animation: grand-text 5s infinite;
+}
+
+@keyframes grand-text {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 20px #fff,
+                     0 0 40px #9333ea,
+                     0 0 60px #9333ea;
+    }
+    50% {
+        color: #9333ea;
+        text-shadow: 0 0 40px #fff,
+                     0 0 80px #9333ea,
+                     0 0 120px #9333ea;
+    }
+}
+
+.loader-text span {
+    background: linear-gradient(45deg, #ff0000, #ff00ff, #0000ff, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradient-shift 8s infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 1s ease';
+        setTimeout(() => {
+            preloader.remove();
+        }, 1000);
+    }, 3000); // Changed to 3 seconds
+});
+</script>
+
+
+
+
 <div class="team-header">
     <h2>Our Team</h2>
     <p>Not in our team? Join now!</p>
