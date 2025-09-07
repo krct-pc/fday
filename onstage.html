@@ -27,6 +27,336 @@
             </nav>
         </div>
     </header>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="loader-content">
+        <img src="assets/images/logo-trans.png" alt="Eventra Logo" class="preloader-logo">
+        <div class="loader-text">Event<span>ra</span></div>
+        <div class="loading-line"></div>
+        <button id="launchBtn" class="launch-btn">Fire UP</button>
+    </div>
+</div>
+
+<div id="fireworksContainer"></div>
+
+<style>
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-content {
+    text-align: center;
+    position: relative;
+}
+
+.preloader-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 30px;
+    animation: float-glow 4s ease-in-out infinite;
+}
+
+.loading-line {
+    width: 200px;
+    height: 3px;
+    background: rgba(147, 51, 234, 0.2);
+    margin: 20px auto 30px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-line::after {
+    content: '';
+    position: absolute;
+    left: -50%;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(147, 51, 234, 0.8),
+        rgba(168, 85, 247, 0.8),
+        rgba(147, 51, 234, 0.8),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes float-glow {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));
+    }
+    50% {
+        transform: translateY(-20px);
+        filter: drop-shadow(0 0 30px rgba(147,51,234,0.8));
+    }
+}
+
+.loader-text {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    animation: grand-text 5s infinite;
+}
+
+@keyframes grand-text {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 20px #fff,
+                     0 0 40px #9333ea,
+                     0 0 60px #9333ea;
+    }
+    50% {
+        color: #9333ea;
+        text-shadow: 0 0 40px #fff,
+                     0 0 80px #9333ea,
+                     0 0 120px #9333ea;
+    }
+}
+
+.loader-text span {
+    background: linear-gradient(45deg, #ff0000, #ff00ff, #0000ff, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradient-shift 8s infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.launch-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.8);
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.launch-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        #ff4d4d, #ff9933, #ffcc00,
+        #ff4d4d);
+    background-size: 300% 100%;
+    z-index: -1;
+    animation: gradient-flow 8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.launch-btn.burning {
+    animation: burn 2s ease-in-out;
+    border-color: transparent;
+}
+
+.launch-btn.burning::before {
+    opacity: 1;
+}
+
+.launch-btn.burning::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 77, 77, 0.8) 0%,
+            rgba(255, 153, 51, 0.8) 10%,
+            rgba(255, 204, 0, 0.8) 20%,
+            transparent 30%
+        );
+    filter: blur(4px);
+    animation: flames 1s ease-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes burn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 77, 77, 0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flames {
+    0% {
+        transform: scaleY(1) translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scaleY(1.2) translateY(-20%);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scaleY(1) translateY(-40%);
+        opacity: 0.3;
+    }
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 800% 50%; }
+}
+
+.launch-btn:hover::before {
+    opacity: 1;
+}
+
+.launch-btn:hover {
+    transform: scale(1.1);
+    border-color: transparent;
+    box-shadow: 0 0 30px rgba(147,51,234,0.6);
+}
+
+#fireworksContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, var(--color1) 0%, var(--color2) 100%);
+    border-radius: 50%;
+    filter: blur(3px);
+    animation: grand-explode var(--duration) cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes grand-explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    const launchBtn = document.getElementById('launchBtn');
+    const fireworksContainer = document.getElementById('fireworksContainer');
+
+    function createGrandFirework(x, y) {
+        const colors = [
+            ['#ffd700', '#ff4500'], // Gold to Red-Orange
+            ['#ff1493', '#4169e1'], // Deep Pink to Royal Blue
+            ['#00ff00', '#ff00ff'], // Lime to Magenta
+            ['#ff4500', '#00ffff'], // Red-Orange to Cyan
+            ['#9400d3', '#00ff00']  // Purple to Lime
+        ];
+
+        for (let i = 0; i < 200; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const angle = (Math.PI * 2 * i) / 200;
+            const velocity = 1 + Math.random() * 3;
+            const size = 4 + Math.random() * 6;
+            const spread = 300;
+            const tx = Math.cos(angle) * spread * velocity;
+            const ty = Math.sin(angle) * spread * velocity;
+            const duration = 3 + Math.random() * 2;
+            const colorPair = colors[Math.floor(Math.random() * colors.length)];
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
+            particle.style.setProperty('--duration', `${duration}s`);
+            particle.style.setProperty('--color1', colorPair[0]);
+            particle.style.setProperty('--color2', colorPair[1]);
+            
+            fireworksContainer.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), duration * 1000);
+        }
+    }
+
+    launchBtn.addEventListener('click', () => {
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = window.innerHeight * 0.3 + Math.random() * (window.innerHeight * 0.3);
+                createGrandFirework(x, y);
+            }, i * 800); // Slower launch sequence
+        }
+    });
+
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 1s ease';
+        setTimeout(() => {
+            preloader.remove();
+            fireworksContainer.remove();
+        }, 1000);
+    }, 7000);
+});
+</script>
+
+
+
+
+
+
+
 <!-- Centered Floating Scroll Down Button -->
 <div class="scroll-down-container">
     <a href="#events" class="scroll-down-btn">
@@ -532,6 +862,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     </style>
 </section>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="assets/Master-the-Blaster-MassTamilan.io.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bgMusic = document.getElementById('bgMusic');
+    const launchBtn = document.getElementById('launchBtn');
+
+    // Add music controls
+    const musicControls = document.createElement('div');
+    musicControls.innerHTML = `
+        <button id="musicToggle" style="
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(147, 51, 234, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        ">
+            <i class="fas fa-volume-mute"></i>
+        </button>
+    `;
+    document.body.appendChild(musicControls);
+
+    const musicToggle = document.getElementById('musicToggle');
+    let isMusicPlaying = false;
+
+    // Start music on launch button click
+    launchBtn.addEventListener('click', () => {
+        if (!isMusicPlaying) {
+            bgMusic.play();
+            isMusicPlaying = true;
+            musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+    });
+
+    // Toggle music button
+    musicToggle.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            bgMusic.pause();
+            musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+            bgMusic.play();
+            musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+        isMusicPlaying = !isMusicPlaying;
+    });
+
+    // Set initial volume
+    bgMusic.volume = 0.5;
+});
+</script>
+
     <!-- Footer -->
     <footer>
         <div class="container">
